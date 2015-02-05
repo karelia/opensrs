@@ -24,6 +24,20 @@ describe OpenSRS::Server do
       server = OpenSRS::Server.new({ :logger => logger })
       server.logger.should eq(logger)
     end
+
+    it 'allows proxy settings to be set during initialization' do
+      server = OpenSRS::Server.new({
+        :proxy_server => 'proxy-init-example.com',
+        :proxy_port => 54321,
+        :proxy_username => 'Init Proxy User',
+        :proxy_password => 'Init Super Secret!'
+      })
+      server.proxy_server.should == 'proxy-init-example.com'
+      server.proxy_port.should == 54321
+      server.proxy_username.should == 'Init Proxy User'
+      server.proxy_password.should == 'Init Super Secret!'
+    end
+
   end
 
   describe ".call" do
