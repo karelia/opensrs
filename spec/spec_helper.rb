@@ -3,6 +3,7 @@ require 'bundler/setup'
 Bundler.setup
 
 require 'opensrs'
+require 'nokogiri'
 
 RSpec.configure do |config|
   # config for rspec!
